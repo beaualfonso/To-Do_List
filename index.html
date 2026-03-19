@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width:device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="style.css">
+        <link rel="icon" type="image/png" href="media/icon.png">
+        <title>Task List</title>
+    </head>
+    <body>
+        <div id="header">
+            <h1 id="welcomeHead">To-Do List</h1>
+            <button id="edit-button" onclick="showTitleChange()"></button>
+        </div>
+        <div id="title-change-box">
+            <h2 id="title-change-head">Enter New Title</h2>
+            <input id="title-change-edit" type="text" placeholder="Enter new title">
+            <button id="confirm-title-change" onclick="changeTitle()">Confirm</button>
+            <button id="exit-title-change" onclick="hideTitleChange()">X</button>
+        </div>
+        <div id="taskBox">
+            
+        </div>
+        <script src="script.js"></script>
+    </body>
+</html>

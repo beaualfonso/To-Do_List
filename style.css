@@ -1,0 +1,104 @@
+body{
+    background-color: #C9E5F3;
+}
+
+#header{
+    text-align: center;
+    background-color: white;
+    max-width: 75%;
+    border-radius: 20px;
+    display: flex;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 3px solid black;
+    font-family: "Header Font";
+    margin-top: 30px;
+}
+
+#edit-button{
+    width: 30px;
+    height: 30px;
+    margin-left: 20px;
+    background: url("media/edit_button.png");
+    background-size: 20px 20px;
+    background-repeat: no-repeat;
+    background-position: 4px;
+    border: 2px black solid;
+    background-color: white;
+    border-radius: 10px;
+}
+
+#title-change-box{
+    background-color: white;
+    max-width: 70%; 
+    margin: 0 auto;
+    padding-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: "Header Font";
+    border-radius: 20px;
+    border: 3px solid black;
+    margin-top: 20px;
+    position: relative;
+    display: none;
+}
+
+#title-change-head{
+    border-radius: 20px;
+    border: 4px black dashed;
+    font-size: 25px;
+    padding-left: 65px;
+    padding-right: 65px;
+    padding-bottom:15px;
+    padding-top:15px;
+}
+
+#title-change-edit{
+    font-family: "Header Font";
+    border-radius: 20px;
+    padding: 10px;
+    border: 1px solid black;
+}
+
+#confirm-title-change{
+    border: 1px solid green;
+    margin-top: 10px;
+    border-radius: 20px;
+    font-family: "Header Font";
+    background-color: lightgreen;
+    color: darkgreen;
+}
+
+#exit-title-change{
+    background-color: red;
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin-top: 10px;
+    margin-right: 10px;
+    font-family: "Header Font";
+    border-radius: 10px;
+    border: none;
+    padding: auto;
+}
+
+
+
+
+
+@font-face {
+    font-family: "Header Font";
+    src: url("font/FredokaOne-Regular.ttf");
+}
+
+button:hover{
+    cursor: pointer;
+    transform: scale(1.1);
+}
+
+button:active{
+    transform: scale(1);
+}
