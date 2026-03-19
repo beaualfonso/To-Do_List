@@ -1,11 +1,12 @@
 body{
     background-color: #C9E5F3;
+    position: relative;
 }
 
 #header{
     text-align: center;
     background-color: white;
-    max-width: 75%;
+    max-width: 85%;
     border-radius: 20px;
     display: flex;
     margin: 0 auto;
@@ -33,17 +34,20 @@ body{
 #title-change-box{
     background-color: white;
     max-width: 70%; 
-    margin: 0 auto;
+    left: 0;
+    right: 0;
+    margin: auto;
+    padding: 20px;
     padding-bottom: 20px;
-    display: flex;
     flex-direction: column;
     align-items: center;
     font-family: "Header Font";
     border-radius: 20px;
     border: 3px solid black;
     margin-top: 20px;
-    position: relative;
+    position: absolute;
     display: none;
+    z-index: 1000;
 }
 
 #title-change-head{
@@ -61,15 +65,17 @@ body{
     border-radius: 20px;
     padding: 10px;
     border: 1px solid black;
+    font-size: 20px;
 }
 
 #confirm-title-change{
-    border: 1px solid green;
-    margin-top: 10px;
+    border: 2px solid green;
+    margin-top: 20px;
     border-radius: 20px;
     font-family: "Header Font";
     background-color: lightgreen;
     color: darkgreen;
+    font-size: 20px;
 }
 
 #exit-title-change{
@@ -84,6 +90,106 @@ body{
     border: none;
     padding: auto;
 }
+
+#add-task-button{
+    margin-left: 20px;
+    font-family: "Header Font";
+    font-size: 20px;
+    border-radius: 20px;
+    padding: 5px;
+    background-color: lightgreen;
+    border: 2px solid darkgreen;
+    padding-left: 20px;
+    padding-right: 20px;
+    color: green;
+}
+
+#tasks-box{
+    background-color: white;
+    max-width: 80%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 10px auto;
+    border-radius: 20px;
+    border: 3px solid black;
+    padding: 6px;
+    padding-left: 20px;
+    font-family: "Header Font";
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin: auto;
+    margin-top: 20px;
+    display: none;
+    z-index: 1000;
+}
+
+#add-task-exit{
+    background-color: red;
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin-top: 10px;
+    margin-right: 10px;
+    font-family: "Header Font";
+    border-radius: 10px;
+    border: none;
+    padding: auto;
+}
+
+#add-task-head{
+    border-radius: 20px;
+    border: 4px black dashed;
+    font-size: 35px;
+    padding-left: 65px;
+    padding-right: 65px;
+    padding-bottom:15px;
+    padding-top:15px;
+    margin-bottom: 15px;
+    margin-top: 15px;
+}
+
+#task-task{
+    margin-bottom: 10px;
+    font-size: 20px;
+    padding: 10px;
+    font-family: "Header Font";
+    border-radius: 10px;
+    border: 3px solid green;
+}
+
+#task-class{
+    margin-bottom: 10px;
+    font-size: 20px;
+    padding: 10px;
+    font-family: "Header Font";
+    border-radius: 10px;
+    border: 3px solid green;
+}
+
+#task-due-date{
+    margin-bottom: 10px;
+    font-size: 20px;
+    padding: 10px;
+    font-family: "Header Font";
+    border-radius: 10px;
+    border: 3px solid green;
+}
+
+#confirm-add-task{
+    border: 1px solid green;
+    margin-top: 20px;
+    border-radius: 20px;
+    font-family: "Header Font";
+    background-color: lightgreen;
+    color: darkgreen;
+    font-size: 20px;
+    margin-bottom: 20px;
+    margin-top: 10px;
+    padding: 10px;
+}
+
 
 
 
