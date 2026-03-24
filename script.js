@@ -1,13 +1,30 @@
-let welcomeHead = document.getElementById("welcomeHead");
-let header = document.getElementById("header");
-
 //change title vars
+let welcomeHead = document.getElementById("welcomeHead");
 let changeTitleBox = document.getElementById("title-change-box");
 let changeTitleHead = document.getElementById("title-change-head");
 let titleChangeConfirm = document.getElementById("confirm-title-change");
 let titleChangeExit = document.getElementById("exit-title-change");
 let titleChangeInput = document.getElementById("title-change-edit");
 let id = null;
+let title;
+
+function saveTitle(newTitle)
+{
+    localStorage.setItem('title', newTitle);
+}
+
+function loadTitle()
+{
+    let headTitle = localStorage.getItem('title');
+    console.log(headTitle);
+    return headTitle;
+}
+
+let saved = loadTitle();
+if(saved)
+{
+    welcomeHead.textContent = saved;
+}
 
 function showTitleChange()
 {   
@@ -26,6 +43,7 @@ function changeTitle()
     welcomeHead.textContent = newTitle;
     titleChangeInput.value = "";
     hideTitleChange();
+    saveTitle(newTitle);
 }
 
 function changeTitleAni(){
@@ -85,7 +103,26 @@ function addTaskAni()
     }
 }
 
-function createDiv()
+let task = [];
+
+function saveTask()
+{
+    localStorage.setItem('taskList', JSON.stringify(task));
+}
+
+function loadTasks()
+{
+    let saved = JSON.parse(localStorage.getItem('taskList'));
+    if (saved)
+    {
+        task = saved;
+        task.forEach(t => renderTask(t.task, t.class, t.duedate));
+    }
+}
+
+loadTasks();
+
+function renderTask(addTask, addClass, addDueDate)
 {
     var div = document.createElement("div");
     var h = document.createElement("h4");
@@ -93,10 +130,6 @@ function createDiv()
     var p2 = document.createElement("p");
     var button = document.createElement("button");
     let completeClick = 0;
-
-    var addTask = taskTask.value;
-    var addClass = taskClass.value;
-    var addDueDate = taskDueDate.value;
 
     h.textContent = addTask;
     p1.textContent = addClass
@@ -145,22 +178,36 @@ function createDiv()
         }
         else if (completeClick == 1)
         {
+            task = task.filter(t => t.task !== addTask);
+            saveTask();
             div.remove();
             completeClick = 0;
         }
     }
-
     div.appendChild(h);
     div.appendChild(p1);
     div.appendChild(p2);
     div.append(button);
     document.getElementById("new-tasks").appendChild(div);
 
+    return div;
+}
+
+function createDiv()
+{
+    var addTask = taskTask.value;
+    var addClass = taskClass.value;
+    var addDueDate = taskDueDate.value;
+
+    task.push({task: addTask, class:addClass, duedate: addDueDate});
+    saveTask();
+
+    let div = renderTask(addTask, addClass, addDueDate);
+
     hideAddTasks();
     taskTask.value = "";
     taskClass.value = "";
     taskDueDate.value="";
-
     return div;
 }
 
