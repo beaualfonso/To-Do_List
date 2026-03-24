@@ -7,9 +7,10 @@ let changeTitleHead = document.getElementById("title-change-head");
 let titleChangeConfirm = document.getElementById("confirm-title-change");
 let titleChangeExit = document.getElementById("exit-title-change");
 let titleChangeInput = document.getElementById("title-change-edit");
+let id = null;
 
 function showTitleChange()
-{
+{   
     changeTitleBox.style.display = 'flex';
     hideAddTasks();
 }
@@ -27,11 +28,31 @@ function changeTitle()
     hideTitleChange();
 }
 
+function changeTitleAni(){
+    showTitleChange();
+    changeTitleBox.style.transform = "scale(0)";
+    let scale = 0;
+    clearInterval(id);
+    id = setInterval(frame, 20);
+    function frame()
+    {
+        if (scale >= 0.99)
+        {
+            clearInterval(id);
+        }
+        else {
+            scale += 0.1;
+            changeTitleBox.style.transform = `scale(${scale})`;
+        }
+    }
+}
+
 //adding tasks
 let addTaskBox = document.getElementById("tasks-box");
 let taskTask = document.getElementById("task-task");
 let taskClass = document.getElementById("task-class");
 let taskDueDate = document.getElementById("task-due-date");
+let taskButton = document.getElementById("add-task-button");
 
 function hideAddTasks(){
     addTaskBox.style.display = 'none';
@@ -43,6 +64,27 @@ function showAddTasks()
     hideTitleChange();
 }
 
+
+function addTaskAni()
+{
+    showAddTasks();
+    addTaskBox.style.transform = "scale(0)";
+    let scale = 0;
+    clearInterval(id);
+    id = setInterval(frame, 20);
+    function frame()
+    {
+        if (scale >= 0.99)
+        {
+            clearInterval(id);
+        }
+        else {
+            scale += 0.1;
+            addTaskBox.style.transform = `scale(${scale})`;
+        }
+    }
+}
+
 function createDiv()
 {
     var div = document.createElement("div");
@@ -50,6 +92,7 @@ function createDiv()
     var p1 = document.createElement("p");
     var p2 = document.createElement("p");
     var button = document.createElement("button");
+    let completeClick = 0;
 
     var addTask = taskTask.value;
     var addClass = taskClass.value;
@@ -65,31 +108,47 @@ function createDiv()
     div.style.margin = "10px auto";
     div.style.borderRadius = "20px";
     div.style.border = "3px solid black";
-    div.style.padding = "6px";
-    div.style.paddingLeft = "20px";
     div.style.fontFamily = "Header Font";
     div.style.position = "relative";
+    div.style.padding = "12px 40px 12px 20px";
+    div.classList.add("bounce");
 
     h.style.fontSize = "25px";
     h.style.fontWeight = "bold";
     h.style.marginTop = "5px";
     h.style.marginBottom = "1px";
+    h.style.wordBreak = "break-word";
 
     p1.style.marginTop = "5px";
     p1.style.marginBottom = "5px";
+    p1.style.wordBreak = "break-word";
 
     p2.style.marginTop = "5px";
     p2.style.marginBottom = "5px";
+    p2.style.wordBreak = "break-word";
 
     button.style.padding = "10px";
     button.style.backgroundColor = "white";
-    button.style.border = "3px solid darkgreen";
-    button.style.top = 0;
-    button.style.right = 0;
-    button.style.marginTop = "10px";
-    button.style.marginRight = "10px";
+    button.style.border = "3px solid black";
+    button.style.top = "10px";
+    button.style.right = "10px";
     button.style.borderRadius = "10px";
     button.style.position = "absolute";
+    button.onclick = function()
+    {   
+        if(completeClick == 0)
+        {
+            div.style.backgroundColor = "lightgreen";
+            button.style.backgroundColor = "#7DF7A4";
+            div.classList.add("wiggle");
+            completeClick = 1;
+        }
+        else if (completeClick == 1)
+        {
+            div.remove();
+            completeClick = 0;
+        }
+    }
 
     div.appendChild(h);
     div.appendChild(p1);
@@ -101,4 +160,8 @@ function createDiv()
     taskTask.value = "";
     taskClass.value = "";
     taskDueDate.value="";
+
+    return div;
 }
+
+

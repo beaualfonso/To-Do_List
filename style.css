@@ -53,7 +53,7 @@ body{
 #title-change-head{
     border-radius: 20px;
     border: 4px black dashed;
-    font-size: 25px;
+    font-size: 20px;
     padding-left: 65px;
     padding-right: 65px;
     padding-bottom:15px;
@@ -66,6 +66,7 @@ body{
     padding: 10px;
     border: 1px solid black;
     font-size: 20px;
+    text-align: center;
 }
 
 #confirm-title-change{
@@ -157,6 +158,7 @@ body{
     font-family: "Header Font";
     border-radius: 10px;
     border: 3px solid green;
+    text-align: center;
 }
 
 #task-class{
@@ -166,6 +168,7 @@ body{
     font-family: "Header Font";
     border-radius: 10px;
     border: 3px solid green;
+    text-align: center;
 }
 
 #task-due-date{
@@ -175,6 +178,7 @@ body{
     font-family: "Header Font";
     border-radius: 10px;
     border: 3px solid green;
+    text-align: center;
 }
 
 #confirm-add-task{
@@ -207,4 +211,34 @@ button:hover{
 
 button:active{
     transform: scale(1);
+}
+
+.bounce{
+    animation: bounceAni 1s ease;
+}
+
+@keyframes bounceAni {
+    0%, 50%, 100% {
+        transform: translateY(0);
+    }
+    25% {
+        transform: translateY(-50px);
+    }
+    75% {
+        transform: translateY(-10px);
+    }
+}
+
+.wiggle{
+    animation: wiggleAni 1s ease;
+}
+
+@keyframes wiggleAni{
+    0%   { transform: rotate(0deg); }
+    15%  { transform: rotate(3deg); }
+    30%  { transform: rotate(-3deg); }
+    45%  { transform: rotate(2deg); }
+    60%  { transform: rotate(-2deg); }
+    75%  { transform: rotate(1deg); }
+    100% { transform: rotate(0deg); }
 }
